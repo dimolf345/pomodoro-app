@@ -2,16 +2,16 @@
 import { createContext, useReducer } from "react";
 import PropTypes from "prop-types";
 import SettingsReducer from "./SettingsReducer";
-import { FONTS, COLORS } from "./constants";
+import {
+  FONTS, COLORS, ACTIONS, TIMERS,
+} from "./constants";
 
 const initialState = {
-  timers: {
-    pomodoro: 25,
-    shortBreak: 5,
-    longBreak: 15,
-  },
+  counter: 0,
+  timers: TIMERS,
   availableFonts: FONTS,
   availableColors: COLORS,
+  currentTimer: TIMERS[0],
   currentFont: FONTS[0],
   currentColor: COLORS[0],
 };
@@ -25,27 +25,39 @@ export function SettingsContextProvider({ children }) {
 
   function setTimer(timerType, newTimer) {
     dispatch({
-      type: "SET_TIMER",
+      type: ACTIONS.SET_TIMER,
       payload: { timerType, newTimer },
     });
   }
 
   function setFont(fontIndex) {
     dispatch({
-      type: "SET_FONT",
+      type: ACTIONS.SET_FONT,
       payload: fontIndex,
     });
   }
   function setColor(colorIndex) {
     dispatch({
-      type: "SET_COLORS",
+      type: ACTIONS.SET_COUNTER,
       payload: colorIndex,
+    });
+  }
+
+  function incrementCounter() {
+    dispatch({
+      type: ACTIONS.INCREMENT_COUNTER,
+    });
+  }
+
+  function resetCounter() {
+    dispatch({
+      type: ACTIONS.RESET_COUNTER,
     });
   }
 
   return (
     <SettingsContext.Provider value={{
-      state, setTimer, setFont, setColor,
+      state, setTimer, setFont, setColor, incrementCounter, resetCounter,
     }}
     >
       {children}
