@@ -8,14 +8,24 @@ export const useFont = () => {
 };
 
 export const useColor = () => {
-  const { currentColor, setColor } = useContext(SettingsContext);
+  const { state, setColor } = useContext(SettingsContext);
 
-  return [currentColor, setColor];
+  return [state.currentColor, setColor];
 };
 
-export const useTimer = (timerName) => {
+export const useTimer = () => {
+  const { state, setTimer } = useContext(SettingsContext);
+  return [state.currentTimer, setTimer];
+};
+
+export const useTimerDuration = (timerName) => {
   const { state, setTimer } = useContext(SettingsContext);
   const selectedTimer = state.timers.find((timer) => timer.name === timerName);
-  console.log(selectedTimer);
+  if (!selectedTimer) throw new Error("Timer not present");
   return [selectedTimer.duration, (newTime) => setTimer(timerName, newTime)];
+};
+
+export const useGetTimers = () => {
+  const { state } = useContext(SettingsContext);
+  return state.timers;
 };

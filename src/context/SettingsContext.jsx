@@ -23,9 +23,16 @@ export const SettingsContext = createContext(initialState);
 export function SettingsContextProvider({ children }) {
   const [state, dispatch] = useReducer(SettingsReducer, initialState);
 
-  function setTimer(timerType, newTimer) {
+  function setTimer(timerIndex) {
     dispatch({
       type: ACTIONS.SET_TIMER,
+      payload: timerIndex,
+    });
+  }
+
+  function setTimerDuration(timerType, newTimer) {
+    dispatch({
+      type: ACTIONS.CHANGE_TIMER_DURATION,
       payload: { timerType, newTimer },
     });
   }
@@ -57,7 +64,7 @@ export function SettingsContextProvider({ children }) {
 
   return (
     <SettingsContext.Provider value={{
-      state, setTimer, setFont, setColor, incrementCounter, resetCounter,
+      state, setTimer, setTimerDuration, setFont, setColor, incrementCounter, resetCounter,
     }}
     >
       {children}

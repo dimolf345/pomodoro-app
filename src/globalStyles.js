@@ -6,6 +6,7 @@ const GlobalStyle = createGlobalStyle`
     --color-cyan: #70F3F8;
     --color-violet: #D881F8;
     --color-grey: #D7E0FF;
+    --color-smokedgrey: rgba(215, 224, 255, 0.4);
 
     --color-darkblue: #1E213F;
     --color-white:#ffffff;
@@ -43,6 +44,7 @@ const GlobalStyle = createGlobalStyle`
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Roboto Sans', sans-serif;
 }
 html {
   font-size: 62.5%;
@@ -68,6 +70,11 @@ h3 {
   line-height: var(--heading-3-line-height);
   letter-spacing: var(--heading-3-letter-spacing);
   text-transform: var(--heading-3-text-transform);
+}
+
+
+ul {
+  list-style-type: none;
 }
 
 .body1 {
