@@ -1,9 +1,9 @@
 import React from "react";
-
+import PropTypes from "prop-types";
 import { ListWrapper, Button, ListItem } from "./Timerindicator.styles";
 import { useColor, useGetTimers, useTimer } from "../../context/customContext";
 
-function TimerIndicator() {
+function TimerIndicator({ isTimerActive, setIsTimerActive }) {
   const [activeTimer, setActiveTimer] = useTimer();
   const currentColor = useColor()[0];
   const timers = useGetTimers();
@@ -24,5 +24,10 @@ function TimerIndicator() {
     </ListWrapper>
   );
 }
+
+TimerIndicator.propTypes = {
+  isTimerActive: PropTypes.bool.isRequired,
+  setIsTimerActive: PropTypes.func.isRequired,
+};
 
 export default TimerIndicator;

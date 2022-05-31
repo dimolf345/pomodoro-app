@@ -1,8 +1,10 @@
+import { useState } from "react";
 import { AppContainer, MainWrapper } from "./App.styles";
 import Header from "../components/Header/Header.component";
 import TimerIndicator from "../components/TimerIndicator/TimerIndicator.component";
 
 function App() {
+  const [isTimerActive, setIsTimerActive] = useState(false);
   return (
 
     <AppContainer>
@@ -12,7 +14,7 @@ function App() {
       <MainWrapper>
         {/* The clock */}
         {/* The settings icon along with modal */}
-        <TimerIndicator />
+        <TimerIndicator isTimerActive={isTimerActive} setIsTimerActive={setIsTimerActive} />
       </MainWrapper>
     </AppContainer>
   );

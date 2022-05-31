@@ -35,6 +35,10 @@ export const ListItem = styled.li`
     background-color: transparent;
     color: var(--color-smokedgrey);
 
+    &:hover {
+        color: var(--color-grey);
+    }
+
 
 `;
 
@@ -48,5 +52,5 @@ export const Button = styled.button`
     background: none;
     border: none;
     color: currentColor;
-
+    cursor: pointer;
 `;
