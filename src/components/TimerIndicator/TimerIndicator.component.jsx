@@ -1,12 +1,25 @@
 import React from "react";
-import PropTypes from "prop-types";
-import { ListWrapper, Button, ListItem } from "./Timerindicator.styles";
-import { useColor, useGetTimers, useTimer } from "../../context/customContext";
 
-function TimerIndicator({ isTimerActive, setIsTimerActive }) {
+import { ListWrapper, Button, ListItem } from "./Timerindicator.styles";
+import {
+  useColor, useGetTimers, useTimer, useCountDownState,
+} from "../../context/customContext";
+
+function TimerIndicator() {
   const [activeTimer, setActiveTimer] = useTimer();
   const currentColor = useColor()[0];
   const timers = useGetTimers();
+  const [countDownState, toggleCountDownState] = useCountDownState();
+
+  const handleClick = async (timerItem) => {
+    let res = "";
+    if (countDownState === true) {
+      console.log("waiting response");
+      res = window.prompt("Are you sure?", "Yes");
+      if (res) setActiveTimer(timerItem);
+    } else setActiveTimer(timerItem);
+  };
+
   return (
     <ListWrapper fillColor={currentColor}>
       {timers.map((timer, index) => {
@@ -17,17 +30,12 @@ function TimerIndicator({ isTimerActive, setIsTimerActive }) {
             className={isActive ? "active" : ""}
             key={name}
           >
-            <Button onClick={() => setActiveTimer(index)}>{name}</Button>
+            <Button onClick={() => handleClick(index)}>{name}</Button>
           </ListItem>
         );
       })}
     </ListWrapper>
   );
 }
-
-TimerIndicator.propTypes = {
-  isTimerActive: PropTypes.bool.isRequired,
-  setIsTimerActive: PropTypes.func.isRequired,
-};
 
 export default TimerIndicator;

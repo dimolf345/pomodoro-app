@@ -1,17 +1,16 @@
+/* eslint-disable import/no-named-as-default */
 /* eslint-disable react/jsx-no-constructed-context-values */
 import { createContext, useReducer } from "react";
 import PropTypes from "prop-types";
 import SettingsReducer from "./SettingsReducer";
 import {
   FONTS, COLORS, ACTIONS, TIMERS,
-} from "./constants";
+} from "../constants";
 
 const initialState = {
-  counter: 0,
   timers: TIMERS,
   availableFonts: FONTS,
   availableColors: COLORS,
-  currentTimer: TIMERS[0],
   currentFont: FONTS[0],
   currentColor: COLORS[0],
 };
@@ -22,13 +21,6 @@ export const SettingsContext = createContext(initialState);
 // SettingsContextProvider is where we integrate useReducer
 export function SettingsContextProvider({ children }) {
   const [state, dispatch] = useReducer(SettingsReducer, initialState);
-
-  function setTimer(timerIndex) {
-    dispatch({
-      type: ACTIONS.SET_TIMER,
-      payload: timerIndex,
-    });
-  }
 
   function setTimerDuration(timerType, newTimer) {
     dispatch({
@@ -50,22 +42,14 @@ export function SettingsContextProvider({ children }) {
     });
   }
 
-  function incrementCounter() {
-    dispatch({
-      type: ACTIONS.INCREMENT_COUNTER,
-    });
-  }
-
-  function resetCounter() {
-    dispatch({
-      type: ACTIONS.RESET_COUNTER,
-    });
-  }
-
   return (
-    <SettingsContext.Provider value={{
-      state, setTimer, setTimerDuration, setFont, setColor, incrementCounter, resetCounter,
-    }}
+    <SettingsContext.Provider
+      value={{
+        state,
+        setTimerDuration,
+        setFont,
+        setColor,
+      }}
     >
       {children}
     </SettingsContext.Provider>

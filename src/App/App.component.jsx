@@ -1,21 +1,15 @@
 import { useState } from "react";
-import { AppContainer, MainWrapper } from "./App.styles";
+import AppContainer from "./App.styles";
 import Header from "../components/Header/Header.component";
-import TimerIndicator from "../components/TimerIndicator/TimerIndicator.component";
+import Main from "../components/Main/Main.component";
 
 function App() {
-  const [isTimerActive, setIsTimerActive] = useState(false);
   return (
-
     <AppContainer>
       {/* Header */}
       <Header title="pomodoro" />
-      {/* Timer indicator */}
-      <MainWrapper>
-        {/* The clock */}
-        {/* The settings icon along with modal */}
-        <TimerIndicator isTimerActive={isTimerActive} setIsTimerActive={setIsTimerActive} />
-      </MainWrapper>
+      {/* Main component with Timer indicator and Countdown */}
+      <Main />
     </AppContainer>
   );
 }

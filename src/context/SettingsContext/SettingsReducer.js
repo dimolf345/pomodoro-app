@@ -1,5 +1,5 @@
 /* eslint-disable func-names */
-import { ACTIONS } from "./constants";
+import { ACTIONS } from "../constants";
 
 export default function (state, action) {
   const { type, payload } = action;
@@ -15,13 +15,9 @@ export default function (state, action) {
             name: timerType,
             duration: newTimer,
           };
-        } return timer;
+        }
+        return timer;
       }),
-    };
-  case ACTIONS.SET_TIMER:
-    return {
-      ...state,
-      currentTimer: state.timers[payload],
     };
   case ACTIONS.SET_FONT:
     return {
@@ -35,17 +31,6 @@ export default function (state, action) {
       currentColor: state.availableColors[payload],
     };
 
-  case ACTIONS.INCREMENT_COUNTER:
-    return {
-      ...state,
-      counter: state.counter + 1,
-    };
-
-  case ACTIONS.RESET_COUNTER:
-    return {
-      ...state,
-      counter: 0,
-    };
   default:
     return state;
   }

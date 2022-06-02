@@ -5,13 +5,16 @@ import "@testing-library/jest-dom";
 import userEvent from "@testing-library/user-event";
 import { TIMERS } from "../../context/constants";
 import TimerIndicator from "./TimerIndicator.component";
-import { SettingsContextProvider, SettingsContext } from "../../context/SettingsContext";
+import { SettingsContext, SettingsContextProvider } from "../../context/SettingsContext/SettingsContext";
+import { TimerContext, TimerContextProvider } from "../../context/TimerContext/TimerContext";
 
 describe("TimerIndicator", () => {
   test("It should render a list of buttons", () => {
     render(
       <SettingsContextProvider>
-        <TimerIndicator />
+        <TimerContextProvider>
+          <TimerIndicator />
+        </TimerContextProvider>
       </SettingsContextProvider>,
     );
     const buttonList = screen.getByRole("list");
@@ -21,7 +24,9 @@ describe("TimerIndicator", () => {
   test("At first render, the first listItem should have an active class", () => {
     render(
       <SettingsContextProvider>
-        <TimerIndicator />
+        <TimerContextProvider>
+          <TimerIndicator />
+        </TimerContextProvider>
       </SettingsContextProvider>,
     );
     const timerButtonsLi = screen.getAllByRole("listitem");
@@ -31,16 +36,20 @@ describe("TimerIndicator", () => {
 
   test("When a button is clicked, the setTimer function is called", () => {
     const mockSetTimer = jest.fn();
-    render(<SettingsContext.Provider value={{
-      state: {
-        timers: TIMERS,
-        currentTimer: TIMERS[0],
-      },
-      setTimer: mockSetTimer,
-    }}
-    >
-      <TimerIndicator />
-    </SettingsContext.Provider>);
+    render(
+      <SettingsContextProvider>
+        <TimerContext.Provider value={{
+          state: {
+            timers: TIMERS,
+            currentTimer: TIMERS[0],
+          },
+          setTimer: mockSetTimer,
+        }}
+        >
+          <TimerIndicator />
+        </TimerContext.Provider>
+      </SettingsContextProvider>,
+    );
     const timerButtons = screen.getAllByRole("button");
     userEvent.click(timerButtons[1]);
     expect(mockSetTimer).toBeCalledTimes(1);
