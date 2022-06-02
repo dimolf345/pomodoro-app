@@ -6,19 +6,8 @@ import {
 } from "../../context/customContext";
 
 function TimerIndicator() {
-  const [activeTimer, setActiveTimer] = useTimer();
   const currentColor = useColor()[0];
   const timers = useGetTimers();
-  const [countDownState, toggleCountDownState] = useCountDownState();
-
-  const handleClick = async (timerItem) => {
-    let res = "";
-    if (countDownState === true) {
-      console.log("waiting response");
-      res = window.prompt("Are you sure?", "Yes");
-      if (res) setActiveTimer(timerItem);
-    } else setActiveTimer(timerItem);
-  };
 
   return (
     <ListWrapper fillColor={currentColor}>
