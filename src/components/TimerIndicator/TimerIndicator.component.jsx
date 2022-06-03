@@ -1,11 +1,9 @@
-import React from "react";
+import PropTypes from "prop-types";
 
 import { ListWrapper, Button, ListItem } from "./Timerindicator.styles";
-import {
-  useColor, useGetTimers, useTimer, useCountDownState,
-} from "../../context/customContext";
+import { useColor, useGetTimers } from "../../context/customContext";
 
-function TimerIndicator() {
+function TimerIndicator({ handleClick, activeTimer }) {
   const currentColor = useColor()[0];
   const timers = useGetTimers();
 
@@ -13,7 +11,7 @@ function TimerIndicator() {
     <ListWrapper fillColor={currentColor}>
       {timers.map((timer, index) => {
         const { name } = timer;
-        const isActive = name === activeTimer.name;
+        const isActive = index === activeTimer;
         return (
           <ListItem
             className={isActive ? "active" : ""}
@@ -26,5 +24,10 @@ function TimerIndicator() {
     </ListWrapper>
   );
 }
+
+TimerIndicator.propTypes = {
+  handleClick: PropTypes.func.isRequired,
+  activeTimer: PropTypes.number.isRequired,
+};
 
 export default TimerIndicator;

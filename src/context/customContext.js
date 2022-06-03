@@ -14,11 +14,6 @@ export const useColor = () => {
   return [state.currentColor, setColor];
 };
 
-// export const useTimer = () => {
-//   const { state, setTimer } = useContext(TimerContext);
-//   return [state.currentTimer, setTimer];
-// };
-
 export const useTimerDuration = (timerName) => {
   const { state, setTimer } = useContext(TimerContext);
   const selectedTimer = state.timers.find((timer) => timer.name === timerName);
@@ -30,8 +25,3 @@ export const useGetTimers = () => {
   const { state } = useContext(SettingsContext);
   return state.timers;
 };
-
-// export const useCountDownState = () => {
-//   const { state, toggleCountDown } = useContext(TimerContext);
-//   return [state.isCountDownInProgress, toggleCountDown];
-// };

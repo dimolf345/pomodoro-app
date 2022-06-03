@@ -11,3 +11,11 @@ export function createTimers(phasesArr) {
 export function createPhasesNames(phasesArr) {
   return phasesArr.map((phase) => phase.name);
 }
+
+export function calcMinsAndSeconds(timeInSeconds) {
+  let seconds = Math.floor(timeInSeconds % 60);
+  if (seconds < 10) seconds = `0${seconds}`;
+  const minutes = Math.floor(timeInSeconds / 60);
+
+  return [minutes, seconds];
+}

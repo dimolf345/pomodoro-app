@@ -6,6 +6,7 @@ background-color: var(--color-verydarkblue);
 padding: 0.8rem;
 border-radius: 31.5px;
 width: 100%;
+margin-bottom: 5rem;
 
 @keyframes activeAnimation {
     0% {

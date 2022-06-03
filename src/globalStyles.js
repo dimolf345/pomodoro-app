@@ -13,6 +13,12 @@ const GlobalStyle = createGlobalStyle`
     --color-lightgrey: #EFF1FA;
     --color-verydarkblue: #161932;
 
+    --color-gradient-start: #2E325A;
+    --color-gradient-end: #0E112A;
+
+    --box-shadow-top-left: -50px -50px 100px 0 rgba(39, 44, 90, 1);
+    --box-shadow-bottom-right: 50px 50px 100px 0 rgba(18, 21, 48, 1);
+
     --heading-1-font-size: 10rem;
     --heading-1-font-weight: bold;
     --heading-1-line-height: 12rem;
