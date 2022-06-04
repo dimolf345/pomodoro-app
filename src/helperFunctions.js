@@ -1,3 +1,5 @@
+import "@testing-library/jest-dom";
+
 export function createTimers(phasesArr) {
   const timers = {};
   // eslint-disable-next-line no-restricted-syntax

@@ -51,7 +51,11 @@ export default function Main() {
     <MainContainer>
 
       <TimerIndicator handleClick={handleChangeTimerManually} activeTimer={activeTimer} />
-      <Countdown timerDuration={countdown} setCountdown={setCountdown} active />
+      <Countdown
+        timerDuration={countdown}
+        setCountdown={setCountdown}
+        isActive={isCountdownActive}
+      />
     </MainContainer>
   );
 }

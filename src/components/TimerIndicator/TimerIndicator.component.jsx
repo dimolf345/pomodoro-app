@@ -8,7 +8,10 @@ function TimerIndicator({ handleClick, activeTimer }) {
   const timers = useGetTimers();
 
   return (
-    <ListWrapper fillColor={currentColor}>
+    <ListWrapper
+      aria-label="active timer"
+      fillColor={currentColor}
+    >
       {timers.map((timer, index) => {
         const { name } = timer;
         const isActive = index === activeTimer;
