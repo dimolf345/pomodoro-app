@@ -4,6 +4,7 @@ import { SettingsContext } from "../../context/SettingsContext/SettingsContext";
 import MainContainer from "./Main.styles";
 import TimerIndicator from "../TimerIndicator/TimerIndicator.component";
 import Countdown from "../Countdown/Countdown.component";
+import FormSettings from "../FormSettings/FormSettings.component";
 
 export default function Main() {
   const { state: { timers } } = useContext(SettingsContext);
@@ -57,6 +58,7 @@ export default function Main() {
         isActive={isCountdownActive}
         setIsActive={setIsCountdownActive}
       />
+      <FormSettings />
     </MainContainer>
   );
 }

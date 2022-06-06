@@ -14,7 +14,7 @@ margin-bottom: 5rem;
     }
 
     100% {
-        background-color: ${(props) => `var(--color-${props.fillColor})`};
+        background-color: ${(props) => props.fillColor};
     }
     
 }
@@ -32,7 +32,7 @@ margin-bottom: 5rem;
 export const ListItem = styled.li`
     flex-grow: 1;
     border-radius: 26.5px;
-    animation: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
     background-color: transparent;
     color: var(--color-smokedgrey);
 

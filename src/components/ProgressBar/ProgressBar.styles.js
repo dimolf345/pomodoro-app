@@ -15,5 +15,5 @@ export const Circle = styled.circle`
   width: 100%;
   fill: none;
   stroke-width: 8;
-  stroke: ${(props) => `var(--color-${props.fillColor})`};
+  stroke: ${(props) => props.fillColor};
 `;

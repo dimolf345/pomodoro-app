@@ -104,6 +104,10 @@ ul {
 
 button {
   cursor: pointer;
+  appearance: none;
+  outline: none;
+  background: none;
+  border: none;
 }
 
 .body1 {

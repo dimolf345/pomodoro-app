@@ -57,6 +57,7 @@ function Countdown({
         <Timer>
           <TimerText minutes={minutes} seconds={seconds} />
           <TransparentButton
+            className="heading-three"
             hoverColor={fillColor}
             handleClick={handleClick}
             // eslint-disable-next-line no-nested-ternary

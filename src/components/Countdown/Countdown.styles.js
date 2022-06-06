@@ -8,6 +8,7 @@ export const CountdownWrapper = styled.div`
   background: linear-gradient(to right bottom, var(--color-gradient-end), var(--color-gradient-start));
   border-radius: 50%;
   box-shadow: var(--box-shadow-top-left), var(--box-shadow-bottom-right); 
+  margin-bottom: auto;
 `;
 
 export const CountdownInner = styled.div`

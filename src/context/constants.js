@@ -1,6 +1,6 @@
 export const FONTS = ["Kumbh Sans", "Roboto Slab", "monospace"];
 
-export const COLORS = ["orange", "cyan", "violet"];
+export const COLORS = ["#F87070", "#70F3F8", "#D881F8"];
 
 export const ACTIONS = {
   SET_TIMER: "SET_TIMER",

@@ -1,4 +1,6 @@
-import { render, screen } from "@testing-library/react";
+import {
+  render, screen, fireEvent, waitFor,
+} from "@testing-library/react";
 import "@testing-library/jest-dom";
 import userEvent from "@testing-library/user-event";
 
@@ -21,18 +23,5 @@ describe("TransparentButton", () => {
     const button = screen.getByRole("button");
     userEvent.click(button);
     expect(stubHandleclick).toHaveBeenCalledTimes(1);
-  });
-
-  test("when hovere, it should have color of hoverColor property", () => {
-    const stubHoverColor = "#fefe";
-    render(
-      <TransparentButton text="test" handleClick={jest.fn()} hoverColor={stubHoverColor} />,
-    );
-    const button = screen.getByRole("button");
-    userEvent.hover(button);
-    expect(button).toHaveStyle({
-      color: "currentColor",
-      border: "none",
-    });
   });
 });
