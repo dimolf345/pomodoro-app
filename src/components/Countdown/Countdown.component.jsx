@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import { CountdownWrapper, CountdownInner } from "./Countdown.styles";
-import ProgressBar from "../ProgressBar/ProgressBar.component";
+
 import useMediaQuery from "../../hooks/useMediaquery";
+import ProgressBar from "../ProgressBar/ProgressBar.component";
+import TimerText from "../TimerText/TimerText.component";
+import TransparentButton from "../TransparentButton/TransparentButton.component";
+
+import { CountdownWrapper, CountdownInner, Timer } from "./Countdown.styles";
 import { useColor } from "../../context/customContext";
 import { calcMinsAndSeconds } from "../../helperFunctions";
 
@@ -18,6 +22,7 @@ function Countdown({
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const handleCountdown = (timeleft, isCountdownRunning) => {
+    // setCountdown(0) makes the main component change timerType or ends the current timer
     if (isCountdownRunning) {
       if (timeleft === 0) {
         setCountdown(0);
@@ -31,10 +36,15 @@ function Countdown({
     }
   };
 
+  const handleClick = () => {
+    setIsActive(!isActive);
+  };
+
   useEffect(() => {
     setlocalCountdown(timerDuration * 60);
   }, [timerDuration]);
 
+  // eslint-disable-next-line consistent-return
   useEffect(() => {
     const countdown = handleCountdown(localCountdown, isActive);
     if (countdown) return () => clearInterval(countdown);
@@ -44,15 +54,16 @@ function Countdown({
     <CountdownWrapper size={isDesktop ? 410 : 300}>
       <CountdownInner>
         <ProgressBar fillColor={fillColor} size={isDesktop ? 378 : 268} percentage={pctTimeLeft} />
-        <h3 className="heading-one">
-          {minutes}
-          <span className="sr-only">minutes</span>
-          :
-          {seconds}
-          <span className="sr-only">seconds left</span>
-        </h3>
+        <Timer>
+          <TimerText minutes={minutes} seconds={seconds} />
+          <TransparentButton
+            hoverColor={fillColor}
+            handleClick={handleClick}
+            // eslint-disable-next-line no-nested-ternary
+            text={isActive ? "Stop" : localCountdown === 0 ? "Restart" : "Start"}
+          />
+        </Timer>
       </CountdownInner>
-
     </CountdownWrapper>
   );
 }

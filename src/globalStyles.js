@@ -6,7 +6,7 @@ export const SIZES = {
   desktop: "1366px",
 };
 
-export const DEVICE = {
+export const DEVICES = {
   mobile: `(max-width: ${SIZES.mobile})`,
   tablet: `(min-width: ${SIZES.tablet})`,
   desktop: `(min-width): ${SIZES.desktop}`,
@@ -76,7 +76,7 @@ h1, .heading-one {
   line-height: var(--heading-1-line-height);
   letter-spacing: var(--heading-1-letter-spacing);
 
-  @media ${DEVICE.tablet} {
+  @media ${DEVICES.tablet} {
     font-size: var(--heading-1-font-size-desktop);
   }
 
@@ -89,7 +89,7 @@ h2 {
   line-height: var(--heading-2-line-height);
 }
 
-h3 {
+h3, .heading-three {
   font-size: var(--heading-3-font-size);
   font-weight: var(--heading-3-font-weight);
   line-height: var(--heading-3-line-height);
@@ -100,6 +100,10 @@ h3 {
 
 ul {
   list-style-type: none;
+}
+
+button {
+  cursor: pointer;
 }
 
 .body1 {

@@ -4,10 +4,9 @@ export const CountdownWrapper = styled.div`
   height: ${(props) => `${props.size}px`};
   width: ${(props) => `${props.size}px`};
   padding: 1.6rem;
-
+  position: relative;
   background: linear-gradient(to right bottom, var(--color-gradient-end), var(--color-gradient-start));
   border-radius: 50%;
-
   box-shadow: var(--box-shadow-top-left), var(--box-shadow-bottom-right); 
 `;
 
@@ -20,17 +19,15 @@ export const CountdownInner = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-    position: relative;
+  position: relative;
 `;
 
-// #progress-circle {
-//   background: radial-gradient(white 50%, transparent 51%),
-//     conic-gradient(transparent 0deg 220deg, gainsboro 220deg 360deg),
-//     conic-gradient(orange 0deg, yellow 90deg, lightgreen 180deg, green);
-//   border-radius: 50%;
-//   width: 120px;
-//   height: 120px;
-//   // For animations...
-//   // transition: all 500ms ease-in;
-//   // will-change: transform;
-// }
+export const Timer = styled.div`
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+`;

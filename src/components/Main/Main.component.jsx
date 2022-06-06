@@ -55,6 +55,7 @@ export default function Main() {
         timerDuration={countdown}
         setCountdown={setCountdown}
         isActive={isCountdownActive}
+        setIsActive={setIsCountdownActive}
       />
     </MainContainer>
   );

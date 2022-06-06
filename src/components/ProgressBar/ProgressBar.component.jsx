@@ -8,7 +8,8 @@ function ProgressBar({
   const strokeOffset = strokeDashArray - (strokeDashArray * percentage) / 100;
 
   return (
-    <SvgWrapper>
+    <SvgWrapper role="img">
+      <title>Circular progress bar displaying time left</title>
       <Circle
         fillColor={fillColor}
         cx="50%"

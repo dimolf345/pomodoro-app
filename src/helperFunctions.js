@@ -1,5 +1,3 @@
-import "@testing-library/jest-dom";
-
 export function createTimers(phasesArr) {
   const timers = {};
   // eslint-disable-next-line no-restricted-syntax
@@ -15,9 +13,9 @@ export function createPhasesNames(phasesArr) {
 }
 
 export function calcMinsAndSeconds(timeInSeconds) {
-  let seconds = Math.floor(timeInSeconds % 60);
+  let seconds = String(Math.floor(timeInSeconds % 60));
   if (seconds < 10) seconds = `0${seconds}`;
-  const minutes = Math.floor(timeInSeconds / 60);
+  const minutes = String(Math.floor(timeInSeconds / 60));
 
   return [minutes, seconds];
 }
