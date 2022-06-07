@@ -2,21 +2,25 @@ import styled from "styled-components";
 
 export default styled.form`
     min-width: calc(100vw - 4.8rem);
+    visibility: ${(props) => (props.showModal ? "visible" : "collapse")};
     height: 90vh;
-    transition: all 2s ease;
-    transform: scale(0.7), translate(-50%, -50%);
     position: fixed;
-    top: -50%;
+    top: ${(props) => (props.isAnimated ? "-50%" : "50%")};
     left: 50%;
     transform: translate(-50%, -50%);
     background: #ffff;
+    z-index: 999;
+    display: ${(props) => (props.showModal ? "block" : "initial")};
+    color: var(--color-darkblue);
+
     animation-name: ${(props) => (props.showModal ? "FromTop" : "ToTop")};
-    animation-duration: 1s;
+    animation-duration: ${(props) => (props.isAnimated ? "1s" : "0")};
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
     animation-play-state: running;
     border-radius: 1.5rem;
-    z-index: 999;
+
+
 
     @keyframes FromTop {
         0% {
@@ -26,7 +30,7 @@ export default styled.form`
 
         100% {
             top: 50%;
-            transform: scale(1), translate(-50%, -50%);
+            transform: translate(-50%, -50%);
             opacity: 1;
         }
     }

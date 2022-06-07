@@ -6,7 +6,7 @@ import HeaderWrapper from "./FormHeader.styles";
 function FormHeader({ handleClick, title }) {
   return (
     <HeaderWrapper>
-      <h3>{title}</h3>
+      <h3 id="form-header">{title}</h3>
       <button
         type="button"
         onClick={handleClick}

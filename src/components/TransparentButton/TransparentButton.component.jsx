@@ -1,3 +1,4 @@
+import React from "react";
 import PropTypes from "prop-types";
 import StyledButton from "./TransparentButton.styles";
 
@@ -16,7 +17,7 @@ function TransparentButton({
 }
 
 TransparentButton.defaultProps = {
-  children: {},
+  children: <></>,
   className: "",
 };
 
