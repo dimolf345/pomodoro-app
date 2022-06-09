@@ -12,7 +12,7 @@ export default styled.form`
     z-index: 999;
     display: ${(props) => (props.showModal ? "block" : "initial")};
     color: var(--color-darkblue);
-
+    transition: ${(props) => (props.isAnimated ? "all 1s ease" : "none")};
     animation-name: ${(props) => (props.showModal ? "FromTop" : "ToTop")};
     animation-duration: ${(props) => (props.isAnimated ? "1s" : "0")};
     animation-iteration-count: 1;
@@ -30,14 +30,13 @@ export default styled.form`
 
         100% {
             top: 50%;
-            transform: translate(-50%, -50%);
             opacity: 1;
         }
     }
 
     @keyframes ToTop {
         0% {
-            top: ${(props) => (props.showModal ? "50%" : "-50%")}
+            top: ${(props) => (props.isAnimated ? "50%" : "-50%")}
         }
 
         100% {
@@ -45,6 +44,5 @@ export default styled.form`
             opacity: 0;
             display: none;
         }
-        
     }
 `;

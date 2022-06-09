@@ -17,7 +17,7 @@ function FormSettings({ isAnimated }) {
         <SettingsIcon>
           <title className="sr-only">settings icon</title>
         </SettingsIcon>
-        <span className="sr-only">Open settings form</span>
+        <span className="sr-only">open settings form</span>
       </SettingsButton>
     </>
   );

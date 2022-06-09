@@ -12,6 +12,7 @@ function FormHeader({ handleClick, title }) {
         onClick={handleClick}
       >
         <CloseIcon />
+        <span className="sr-only">close settings form</span>
       </button>
     </HeaderWrapper>
   );

@@ -58,7 +58,7 @@ export default function Main() {
         isActive={isCountdownActive}
         setIsActive={setIsCountdownActive}
       />
-      <FormSettings />
+      <FormSettings isAnimated />
     </MainContainer>
   );
 }
