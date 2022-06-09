@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { SettingsContext } from "./SettingsContext/SettingsContext";
-import { TimerContext } from "./TimerContext/TimerContext";
 
 export const useFont = () => {
   const { state, setFont } = useContext(SettingsContext);
@@ -14,11 +13,10 @@ export const useColor = () => {
   return [state.currentColor, setColor];
 };
 
-export const useTimerDuration = (timerName) => {
-  const { state, setTimer } = useContext(TimerContext);
-  const selectedTimer = state.timers.find((timer) => timer.name === timerName);
-  if (!selectedTimer) throw new Error("Timer not present");
-  return [selectedTimer.duration, (newTime) => setTimer(timerName, newTime)];
+export const useSetTimers = () => {
+  const { state, setTimers } = useContext(SettingsContext);
+
+  return [state.timers, setTimers];
 };
 
 export const useGetTimers = () => {

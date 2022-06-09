@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
 export const FormSectionWrapper = styled.fieldset`
-    border: none;
-    border-bottom: 1px solid var(--color-grey);
+  border: none;
+  border-bottom: 1px solid var(--color-grey);
+  padding: 1.8rem 2.4rem;
 `;
 
 export const FieldSetTitle = styled.legend`

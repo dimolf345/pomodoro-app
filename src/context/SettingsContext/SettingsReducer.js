@@ -4,20 +4,11 @@ import { ACTIONS } from "../constants";
 export default function (state, action) {
   const { type, payload } = action;
   switch (type) {
-  case ACTIONS.CHANGE_TIMER_DURATION:
+  case ACTIONS.SET_TIMERS:
     // eslint-disable-next-line no-case-declarations
-    const { timerType, newTimer } = payload;
     return {
       ...state,
-      timers: state.timers.map((timer) => {
-        if (timer.name === timerType) {
-          return {
-            name: timerType,
-            duration: newTimer,
-          };
-        }
-        return timer;
-      }),
+      timers: payload,
     };
   case ACTIONS.SET_FONT:
     return {
