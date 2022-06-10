@@ -1,27 +1,50 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Proptypes from "prop-types";
 
 import FormBodyWrapper from "./FormBody.styles";
 import FormSection from "../FormSection/FormSection.component";
 import TimersSettings from "../TimersSettings/TimersSettings.component";
+import FontSettings from "../FontSettings/FontSettings.component";
+
 import useMediaQuery from "../../../hooks/useMediaquery";
-import {
-  useColor, useFont, useGetTimers, useSetTimers,
-} from "../../../context/customContext";
+import { SettingsContext } from "../../../context/SettingsContext/SettingsContext";
+import { useSetTimers } from "../../../context/customContext";
 
 export default function FormBody({ isSubmitted, setHasCollectedData }) {
+  const { state, setColor, setFont } = useContext(SettingsContext);
   const [timers, setTimers] = useSetTimers();
   const [localTimers, setLocalTimers] = useState(timers);
-  const [appliedColor, setAppliedColor] = useColor();
-  const [tempColor, setTempColor] = useState(appliedColor);
-  const [appliedFont, setAppliedFont] = useFont();
-  const [tempFont, setTempFont] = useState(appliedFont);
+  const [tempColor, setTempColor] = useState(0);
+  const [tempFont, setTempFont] = useState(0);
+
+  console.log(tempFont);
 
   const isDesktop = useMediaQuery("(min-width: 767px)");
   return (
     <FormBodyWrapper>
-      <FormSection title="Time (minutes)" isDesktop={isDesktop}>
+      <FormSection title="time (minutes)" isDesktop={isDesktop}>
         <TimersSettings timers={localTimers} setTimers={setLocalTimers} />
+      </FormSection>
+      <FormSection title="font" isDesktop={isDesktop}>
+        <FontSettings
+          displayValue="Aa"
+          propertyName="fontFamily"
+          options={state.availableFonts}
+          setOption={setTempFont}
+          currentIndex={tempFont}
+          onCheckedStyle={{
+            color: "#fff",
+            backgroundColor: "var(--color-darkblue)",
+          }}
+        />
+      </FormSection>
+      <FormSection title="color" isDesktop={isDesktop}>
+        <FontSettings
+          options={state.availableColors}
+          setOption={setTempColor}
+          propertyName="backgroundColor"
+          currentIndex={tempColor}
+        />
       </FormSection>
     </FormBodyWrapper>
   );

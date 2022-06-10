@@ -1,6 +1,11 @@
 import styled from "styled-components";
 
-export const InputWrapper = styled.div``;
+export const InputWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.8rem;
+`;
 
 export const InputLabel = styled.label`
   display: block;
@@ -15,7 +20,7 @@ export const InputInner = styled.div`
   display: flex;
   width: 14rem;
   justify-content: space-between;
-  padding: 1.2rem 1.6rem;
+  padding: 0.2rem 1.6rem;
   background-color: var(--color-grey);
   border-radius: 1rem;
   &:focus-within {

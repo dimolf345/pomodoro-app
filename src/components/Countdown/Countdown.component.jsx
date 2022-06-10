@@ -53,15 +53,21 @@ function Countdown({
   return (
     <CountdownWrapper size={isDesktop ? 410 : 300}>
       <CountdownInner>
-        <ProgressBar fillColor={fillColor} size={isDesktop ? 378 : 268} percentage={pctTimeLeft} />
+        <ProgressBar
+          fillColor={fillColor.value}
+          size={isDesktop ? 378 : 268}
+          percentage={pctTimeLeft}
+        />
         <Timer>
           <TimerText minutes={minutes} seconds={seconds} />
           <TransparentButton
             className="heading-three"
-            hoverColor={fillColor}
+            hoverColor={fillColor.value}
             handleClick={handleClick}
-            // eslint-disable-next-line no-nested-ternary
-            text={isActive ? "Stop" : localCountdown === 0 ? "Restart" : "Start"}
+            text={
+              // eslint-disable-next-line no-nested-ternary
+              isActive ? "Stop" : localCountdown === 0 ? "Restart" : "Start"
+            }
           />
         </Timer>
       </CountdownInner>

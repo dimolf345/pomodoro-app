@@ -1,6 +1,33 @@
-export const FONTS = ["Kumbh Sans", "Roboto Slab", "monospace"];
+export const FONTS = [
+  {
+    name: "Kumbh Sans",
+    value: "Kumbh Sans",
+  },
+  {
+    name: "Roboto Slab",
+    value: "Roboto Slab",
+  },
+  {
+    name: "Monospace",
+    value: "monospace",
+  },
+];
 
-export const COLORS = ["#F87070", "#70F3F8", "#D881F8"];
+export const COLORS = [
+  {
+    name: "orange",
+    value: "#F87070",
+  },
+
+  {
+    name: "cyan",
+    value: "#70F3F8",
+  },
+  {
+    name: "violet",
+    value: "#D881F8",
+  },
+];
 
 export const ACTIONS = {
   SET_TIMERS: "SET_TIMERS",

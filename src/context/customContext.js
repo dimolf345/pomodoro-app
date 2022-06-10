@@ -18,8 +18,3 @@ export const useSetTimers = () => {
 
   return [state.timers, setTimers];
 };
-
-export const useGetTimers = () => {
-  const { state } = useContext(SettingsContext);
-  return state.timers;
-};
