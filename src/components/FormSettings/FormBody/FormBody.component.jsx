@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import Proptypes from "prop-types";
 
 import FormBodyWrapper from "./FormBody.styles";
@@ -16,6 +16,19 @@ export default function FormBody({ isSubmitted, setHasCollectedData }) {
   const [localTimers, setLocalTimers] = useState(timers);
   const [tempColor, setTempColor] = useState(0);
   const [tempFont, setTempFont] = useState(0);
+
+  const saveSettings = () => {
+    setTimers(localTimers);
+    setColor(tempColor);
+    setFont(tempFont);
+  };
+
+  useEffect(() => {
+    if (isSubmitted) {
+      saveSettings();
+      setHasCollectedData(true);
+    }
+  }, [isSubmitted, setHasCollectedData]);
 
   const isDesktop = useMediaQuery("(min-width: 767px)");
   return (

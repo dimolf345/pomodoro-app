@@ -1,4 +1,3 @@
-import { useState } from "react";
 import AppContainer from "./App.styles";
 import Header from "../components/Header/Header.component";
 import Main from "../components/Main/Main.component";

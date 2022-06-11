@@ -48,6 +48,10 @@ export default function Main() {
     else setCountdown(timers[activeTimer].duration);
   }, [countdown, activeTimer]);
 
+  useEffect(() => {
+    setCountdown(timers[activeTimer].duration);
+  }, [timers, activeTimer]);
+
   return (
     <MainContainer>
 

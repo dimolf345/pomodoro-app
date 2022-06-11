@@ -15,14 +15,14 @@ function RadioGroup({
 
   const handleStyle = (index) => {
     if (onCheckedStyle && index === currentIndex) {
-      return onCheckedStyle;
-    }
-    if (!onCheckedStyle) {
       return {
+        ...onCheckedStyle,
         [propertyName]: options[index].value,
       };
     }
-    return {};
+    return {
+      [propertyName]: options[index].value,
+    };
   };
 
   const handleDisplayText = (isChecked) => {
@@ -39,7 +39,12 @@ function RadioGroup({
           key={option.name}
         >
           <InputLabel htmlFor={option.name}>
-            <span>{handleDisplayText(index === currentIndex)}</span>
+            <span
+              style={handleStyle(index)}
+            >
+              {handleDisplayText(index === currentIndex)}
+
+            </span>
             <SrOnly text={`set ${option.name} as application ${propertyName}`} />
             <Input
               onChange={() => handleChange(index)}
@@ -61,7 +66,7 @@ RadioGroup.defaultProps = {
 
   displayValue: "",
   onCheckedText: "",
-
+  onCheckedStyle: "",
 };
 
 RadioGroup.propTypes = {
@@ -72,7 +77,7 @@ RadioGroup.propTypes = {
   setOption: PropTypes.func.isRequired,
   currentIndex: PropTypes.number.isRequired,
   propertyName: PropTypes.string.isRequired,
-  onCheckedStyle: PropTypes.objectOf(PropTypes.string).isRequired,
+  onCheckedStyle: PropTypes.oneOfType([PropTypes.objectOf(PropTypes.string), PropTypes.string]),
   displayValue: PropTypes.string,
   onCheckedText: PropTypes.string,
 

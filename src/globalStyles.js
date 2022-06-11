@@ -110,6 +110,16 @@ button {
   border: none;
 }
 
+input {
+  outline: none;
+  border:none;
+  background-image:none;
+  background-color:transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;  
+}
+
 .body1 {
   font-size: var(--body-1-font-size);
   font-weight: var(--body-1-font-weight);

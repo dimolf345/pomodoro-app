@@ -46,7 +46,7 @@ export const ButtonContainer = styled.div`
 `;
 
 export const Input = styled.input`
-  appearance: none;
+  appearance: textfield;
   background: transparent;
   border: none;
   outline: none;

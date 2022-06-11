@@ -1,15 +1,15 @@
 export const FONTS = [
   {
     name: "Kumbh Sans",
-    value: "Kumbh Sans",
+    value: "'Kumbh Sans', sans-serif",
   },
   {
     name: "Roboto Slab",
-    value: "Roboto Slab",
+    value: "'Roboto Slab', serif",
   },
   {
-    name: "Monospace",
-    value: "monospace",
+    name: "Space Mono",
+    value: "'Space Mono', monospace",
   },
 ];
 
