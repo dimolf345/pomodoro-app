@@ -4,7 +4,7 @@ import Proptypes from "prop-types";
 import FormBodyWrapper from "./FormBody.styles";
 import FormSection from "../FormSection/FormSection.component";
 import TimersSettings from "../TimersSettings/TimersSettings.component";
-import FontSettings from "../FontSettings/FontSettings.component";
+import RadioGroup from "../RadioGroup/RadioGroup";
 
 import useMediaQuery from "../../../hooks/useMediaquery";
 import { SettingsContext } from "../../../context/SettingsContext/SettingsContext";
@@ -17,8 +17,6 @@ export default function FormBody({ isSubmitted, setHasCollectedData }) {
   const [tempColor, setTempColor] = useState(0);
   const [tempFont, setTempFont] = useState(0);
 
-  console.log(tempFont);
-
   const isDesktop = useMediaQuery("(min-width: 767px)");
   return (
     <FormBodyWrapper>
@@ -26,7 +24,7 @@ export default function FormBody({ isSubmitted, setHasCollectedData }) {
         <TimersSettings timers={localTimers} setTimers={setLocalTimers} />
       </FormSection>
       <FormSection title="font" isDesktop={isDesktop}>
-        <FontSettings
+        <RadioGroup
           displayValue="Aa"
           propertyName="fontFamily"
           options={state.availableFonts}
@@ -39,11 +37,12 @@ export default function FormBody({ isSubmitted, setHasCollectedData }) {
         />
       </FormSection>
       <FormSection title="color" isDesktop={isDesktop}>
-        <FontSettings
+        <RadioGroup
           options={state.availableColors}
           setOption={setTempColor}
           propertyName="backgroundColor"
           currentIndex={tempColor}
+          onCheckedText="✓"
         />
       </FormSection>
     </FormBodyWrapper>

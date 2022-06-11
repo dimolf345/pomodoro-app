@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import FormHeader from "../FormHeader/FormHeader.component";
 import FormWrapper from "./SettingsModal.styles";
 import FormBody from "../FormBody/FormBody.component";
+import SubmitButton from "../SubmitButton/SubmitButton.component";
 
 function SettingsModal({ showModal, setShowModal, isAnimated }) {
   const handleClick = () => setShowModal(false);
@@ -18,6 +19,7 @@ function SettingsModal({ showModal, setShowModal, isAnimated }) {
     >
       <FormHeader title="Settings" handleClick={handleClick} />
       <FormBody isSubmitted={isSubmitted} setHasCollectedData={setHasCollectedData} />
+      <SubmitButton text="Apply" handleSubmit={() => console.log("submit")} />
     </FormWrapper>
   );
 }
