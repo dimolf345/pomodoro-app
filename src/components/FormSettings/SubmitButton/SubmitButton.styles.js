@@ -11,4 +11,13 @@ export default styled.button`
   border-radius: 26.5px;
   color: #fff;
   font-weight: bold;
+  transition: all 0.2s ease;
+
+  &:hover {
+    filter: brightness(1.25);
+  }
+
+  &:active {
+    transform: translate(-50%, 60%);
+  }
 `;

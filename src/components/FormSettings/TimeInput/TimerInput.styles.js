@@ -5,6 +5,13 @@ export const InputWrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   margin-bottom: 0.8rem;
+
+  &:focus-within {
+    label {
+      color: var(--color-verydarkblue);
+      opacity: 1;
+    }
+  }
 `;
 
 export const InputLabel = styled.label`
@@ -24,7 +31,12 @@ export const InputInner = styled.div`
   background-color: var(--color-grey);
   border-radius: 1rem;
   &:focus-within {
-    outline: 2px solid red;
+    outline: 2px solid var(--color-verydarkblue);
+  }
+
+  &:focus-within label {
+    color: var(--color-verydarkblue);
+    opacity: 1;
   }
 `;
 

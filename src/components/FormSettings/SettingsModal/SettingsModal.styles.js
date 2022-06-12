@@ -19,6 +19,13 @@ export default styled.form`
   animation-play-state: running;
   border-radius: 1.5rem;
 
+  &,
+  *,
+  *::before,
+  *::after {
+    font-family: "Kumbh Sans", sans-serif;
+  }
+
   @keyframes FromTop {
     0% {
       top: -50%;

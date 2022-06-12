@@ -15,6 +15,7 @@ export const DEVICES = {
 const GlobalStyle = createGlobalStyle`
 :root {
     --color-orange: #F87070;
+    --color-softorange: #F87676;
     --color-cyan: #70F3F8;
     --color-violet: #D881F8;
     --color-grey: #D7E0FF;
@@ -63,11 +64,18 @@ const GlobalStyle = createGlobalStyle`
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Kumbh Sans', sans-serif;
+
 }
+
+
 html {
   font-size: 62.5%;
 }
+
+body {
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
 
 
 h1, .heading-one {
