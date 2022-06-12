@@ -128,6 +128,12 @@ input {
   box-shadow: none;  
 }
 
+footer {
+  a {
+    color: var(--color-orange)
+  }
+}
+
 .body1 {
   font-size: var(--body-1-font-size);
   font-weight: var(--body-1-font-weight);
