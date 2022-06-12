@@ -7,7 +7,7 @@ import Countdown from "../Countdown/Countdown.component";
 import FormSettings from "../FormSettings/FormSettings.component";
 
 export default function Main() {
-  const { state: { timers, currentFont } } = useContext(SettingsContext);
+  const { state: { timers, currentFont, currentColor } } = useContext(SettingsContext);
   console.log(currentFont);
   const [isCountdownActive, setIsCountdownActive] = useState(false);
   const [activeTimer, setActiveTimer] = useState(0);
@@ -56,7 +56,11 @@ export default function Main() {
   return (
     <MainContainer font={currentFont.value}>
 
-      <TimerIndicator handleClick={handleChangeTimerManually} activeTimer={activeTimer} />
+      <TimerIndicator
+        color={currentColor.value}
+        handleClick={handleChangeTimerManually}
+        activeTimer={activeTimer}
+      />
       <Countdown
         timerDuration={countdown}
         setCountdown={setCountdown}
