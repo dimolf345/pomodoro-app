@@ -2,7 +2,7 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 import { ReactComponent as SettingsIcon } from "../../assets/icon-settings.svg";
 import SettingsModal from "./SettingsModal/SettingsModal.component";
-import { SettingsButton } from "./FormSettings.styles";
+import SettingsButton from "./FormSettings.styles";
 
 function FormSettings({ isAnimated }) {
   const [showModal, setShowModal] = useState(false);

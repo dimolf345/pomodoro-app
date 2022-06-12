@@ -1,14 +1,20 @@
 import PropTypes from "prop-types";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { ListWrapper, Button, ListItem } from "./Timerindicator.styles";
 import { useColor, useSetTimers } from "../../context/customContext";
 
-function TimerIndicator({ handleClick, activeTimer, color }) {
+function TimerIndicator({ handleClick, activeTimer }) {
+  const [currentColor, setColor] = useColor();
+  const [fillColor, setFillColor] = useState(currentColor.value);
   const timers = useSetTimers()[0];
 
+  useEffect(() => {
+    setFillColor(currentColor.value);
+  }, [currentColor]);
+
   return (
-    <ListWrapper aria-label="active timer" fillColor={color}>
+    <ListWrapper aria-label="active timer" fillColor={fillColor}>
       {timers.map((timer, index) => {
         const { name } = timer;
         const isActive = index === activeTimer;

@@ -1,32 +1,30 @@
 import styled from "styled-components";
 
 export const ListWrapper = styled.ul`
-display: flex;
-background-color: var(--color-verydarkblue);
-padding: 0.8rem;
-border-radius: 31.5px;
-width: 100%;
-margin-bottom: 5rem;
+  display: flex;
+  background-color: var(--color-verydarkblue);
+  padding: 0.8rem;
+  border-radius: 31.5px;
+  width: 100%;
+  margin-bottom: 5rem;
 
-@keyframes activeAnimation {
+  @keyframes activeAnimation {
     0% {
-        background-color: transparent;
+      background-color: transparent;
     }
 
     100% {
-        background-color: ${(props) => props.fillColor};
+      background-color: ${(props) => props.fillColor};
     }
-    
-}
+  }
 
-
-    .active {
-        animation-name: activeAnimation;
-        animation-duration: 0.2s;
-        animation-fill-mode: forwards;
-        color: var(--color-darkblue) !important;
-    }
-
+  .active {
+    /* animation-name: activeAnimation;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards; */
+    color: var(--color-darkblue) !important;
+    background-color: ${(props) => props.fillColor};
+  }
 `;
 
 export const ListItem = styled.li`
