@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export default styled.form`
+export const FormWrapper = styled.form`
   min-width: calc(100vw - 4.8rem);
   visibility: ${(props) => (props.showModal ? "visible" : "collapse")};
   position: fixed;
@@ -49,4 +49,15 @@ export default styled.form`
       display: none;
     }
   }
+`;
+
+export const Background = styled.div`
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  visibility: ${(props) => (props.showModal ? "visible" : "collapse")};
+  transition: visibility 0.5s ease-out;
+  background-color: rgba(10, 12, 28, 0.5);
 `;

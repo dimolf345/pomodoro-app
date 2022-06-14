@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
 import FormHeader from "../FormHeader/FormHeader.component";
-import FormWrapper from "./SettingsModal.styles";
+import { FormWrapper, Background } from "./SettingsModal.styles";
 import FormBody from "../FormBody/FormBody.component";
 import SubmitButton from "../SubmitButton/SubmitButton.component";
 
@@ -25,16 +25,18 @@ function SettingsModal({ showModal, setShowModal, isAnimated }) {
   };
 
   return (
-    <FormWrapper
-      aria-labelledby="form-title"
-      role="form"
-      isAnimated={isAnimated}
-      showModal={showModal}
-    >
-      <FormHeader title="Settings" handleClick={handleClick} />
-      <FormBody isSubmitted={isSubmitted} setHasCollectedData={setHasCollectedData} />
-      <SubmitButton text="Apply" handleSubmit={(e) => handleSubmit(e)} />
-    </FormWrapper>
+    <Background showModal={showModal}>
+      <FormWrapper
+        aria-labelledby="form-title"
+        role="form"
+        isAnimated={isAnimated}
+        showModal={showModal}
+      >
+        <FormHeader title="Settings" handleClick={handleClick} />
+        <FormBody isSubmitted={isSubmitted} setHasCollectedData={setHasCollectedData} />
+        <SubmitButton text="Apply" handleSubmit={(e) => handleSubmit(e)} />
+      </FormWrapper>
+    </Background>
   );
 }
 

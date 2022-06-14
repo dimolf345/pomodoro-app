@@ -14,7 +14,7 @@ function TimerIndicator({ handleClick, activeTimer }) {
   }, [currentColor]);
 
   return (
-    <ListWrapper aria-label="active timer" fillColor={fillColor}>
+    <ListWrapper aria-label="type of timer selected" fillColor={fillColor}>
       {timers.map((timer, index) => {
         const { name } = timer;
         const isActive = index === activeTimer;

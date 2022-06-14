@@ -46,7 +46,7 @@ export default function Main() {
   useEffect(() => {
     if (countdown === 0) changeTimer();
     else setCountdown(timers[activeTimer].duration);
-  }, [countdown, activeTimer]);
+  }, [countdown, activeTimer, changeTimer, timers]);
 
   useEffect(() => {
     setCountdown(timers[activeTimer].duration);

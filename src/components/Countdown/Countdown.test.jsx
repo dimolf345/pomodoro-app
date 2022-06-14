@@ -30,7 +30,7 @@ describe("Countdown", () => {
         />
       </SettingsContextProvider>,
     );
-    expect(screen.getByRole("heading")).toHaveTextContent(`${stubTimerDuration}minutes`);
+    expect(screen.getByRole("heading")).toHaveTextContent(`${stubTimerDuration} minutes`);
   });
 
   test("The countdown should contain a circle element representing the progress bar and an accessible description", () => {

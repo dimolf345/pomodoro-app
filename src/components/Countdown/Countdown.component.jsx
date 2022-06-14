@@ -59,14 +59,19 @@ function Countdown({
           percentage={pctTimeLeft}
         />
         <Timer>
-          <TimerText minutes={minutes} seconds={seconds} />
+          <TimerText
+            hoverColor={fillColor.value}
+            handleClick={handleClick}
+            minutes={minutes}
+            seconds={seconds}
+          />
           <TransparentButton
             className="heading-three"
             hoverColor={fillColor.value}
             handleClick={handleClick}
             text={
               // eslint-disable-next-line no-nested-ternary
-              isActive ? "Stop" : localCountdown === 0 ? "Restart" : "Start"
+              isActive ? "stop" : localCountdown === 0 ? "restart" : "start"
             }
           />
         </Timer>

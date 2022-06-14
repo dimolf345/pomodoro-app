@@ -7,7 +7,7 @@ import {
   FONTS, COLORS, ACTIONS, TIMERS,
 } from "../constants";
 
-const initialState = {
+export const initialState = {
   timers: TIMERS,
   availableFonts: FONTS,
   availableColors: COLORS,
