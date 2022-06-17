@@ -116,6 +116,10 @@ button {
   outline: none;
   background: none;
   border: none;
+
+  &:focus-visible {
+    outline: 4px dashed white;
+  }
 }
 
 input {

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { DEVICES } from "../../../globalStyles";
 
 export const InputWrapper = styled.div`
   display: flex;
@@ -12,6 +13,12 @@ export const InputWrapper = styled.div`
       opacity: 1;
     }
   }
+
+  @media ${DEVICES.tablet} {
+    flex-direction: column;
+    margin-bottom: 0;
+    padding: 0.5rem;
+  }
 `;
 
 export const InputLabel = styled.label`
@@ -21,6 +28,12 @@ export const InputLabel = styled.label`
   font-weight: bold;
   font-size: 1.4rem;
   margin-bottom: ${(props) => (props.isDesktop ? "0" : "5px")};
+
+  @media ${DEVICES.tablet} {
+    width: 100%;
+    text-align: left;
+  }
+
 `;
 
 export const InputInner = styled.div`
@@ -45,6 +58,15 @@ export const ButtonContainer = styled.div`
   background-color: transparent;
   flex-direction: column;
   width: 1.7rem;
+
+  button:focus-visible:not(:disabled) {
+
+    outline: 1px solid var(--color-darkblue);  
+
+    path {
+      stroke-opacity: 1 !important;
+    }
+  }
 
   button:hover {
     path {

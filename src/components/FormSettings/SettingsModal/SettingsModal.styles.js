@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { DEVICES } from "../../../globalStyles";
 
 export const FormWrapper = styled.form`
   min-width: calc(100vw - 4.8rem);
@@ -18,6 +19,13 @@ export const FormWrapper = styled.form`
   animation-fill-mode: forwards;
   animation-play-state: running;
   border-radius: 1.5rem;
+
+  @media ${DEVICES.tablet} {
+    min-width: 54rem;
+    max-width: 54rem;
+  }
+
+
 
   &,
   *,

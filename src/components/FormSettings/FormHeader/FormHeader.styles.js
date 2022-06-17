@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { DEVICES } from "../../../globalStyles";
 
 export default styled.header`
     padding: 2.4rem;
@@ -11,6 +12,7 @@ export default styled.header`
         text-transform: none;
         color: var(--color-darkblue);
         flex-grow: 1;
+        font-size: 2rem;
     }
 
     button {
@@ -22,6 +24,15 @@ export default styled.header`
             path {
                 opacity: 1 !important;
             }
+        }
+        &:focus-visible {
+            outline: 4px dotted var(--color-darkblue)
+        }
+    }
+
+    @media ${DEVICES.tablet} {
+        h3{
+            font-size: 2.8rem;
         }
     }
 

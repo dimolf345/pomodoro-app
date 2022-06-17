@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 
 import FormHeader from "../FormHeader/FormHeader.component";
@@ -10,6 +10,11 @@ function SettingsModal({ showModal, setShowModal, isAnimated }) {
   const handleClick = () => setShowModal(false);
   const [hasCollectedData, setHasCollectedData] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const formRef = useRef(null);
+
+  useEffect(() => {
+    if (showModal) formRef.current.focus();
+  }, [showModal]);
 
   useEffect(() => {
     if (hasCollectedData) {
@@ -25,12 +30,15 @@ function SettingsModal({ showModal, setShowModal, isAnimated }) {
   };
 
   return (
-    <Background showModal={showModal}>
+    <Background
+      showModal={showModal}
+    >
       <FormWrapper
         aria-labelledby="form-title"
         role="form"
         isAnimated={isAnimated}
         showModal={showModal}
+        ref={formRef}
       >
         <FormHeader title="Settings" handleClick={handleClick} />
         <FormBody isSubmitted={isSubmitted} setHasCollectedData={setHasCollectedData} />

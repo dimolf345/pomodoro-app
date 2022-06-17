@@ -44,4 +44,8 @@ export const Input = styled.input.attrs({
   width: 100%;
   height: 100%;
   cursor: pointer;
+
+  &:focus-visible {
+    outline: 4px dashed var(--color-darkblue  )
+  }
 `;

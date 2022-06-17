@@ -20,4 +20,9 @@ export default styled.button`
   &:active {
     transform: translate(-50%, 60%);
   }
+  
+  &:focus-visible {
+    outline: 5px dashed var(--color-grey);
+    color: var(--color-darkblue);
+  }
 `;

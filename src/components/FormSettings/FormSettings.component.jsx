@@ -8,17 +8,19 @@ function FormSettings({ isAnimated }) {
   const [showModal, setShowModal] = useState(false);
   return (
     <>
-      <SettingsModal
-        isAnimated={isAnimated}
-        showModal={showModal}
-        setShowModal={setShowModal}
-      />
-      <SettingsButton onClick={() => setShowModal(!showModal)}>
+      <SettingsButton
+        onClick={() => setShowModal(!showModal)}
+      >
         <SettingsIcon>
           <title className="sr-only">settings icon</title>
         </SettingsIcon>
         <span className="sr-only">open settings form</span>
       </SettingsButton>
+      <SettingsModal
+        isAnimated={isAnimated}
+        showModal={showModal}
+        setShowModal={setShowModal}
+      />
     </>
   );
 }

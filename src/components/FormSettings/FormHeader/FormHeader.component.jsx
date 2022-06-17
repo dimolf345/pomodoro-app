@@ -11,8 +11,10 @@ function FormHeader({ handleClick, title }) {
         type="button"
         onClick={handleClick}
       >
-        <CloseIcon />
-        <span className="sr-only">close settings form</span>
+        <CloseIcon aria-labelledby="close">
+          <title>Closing icon</title>
+        </CloseIcon>
+        <span id="close" className="sr-only">close settings form</span>
       </button>
     </HeaderWrapper>
   );

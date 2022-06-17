@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { DEVICES } from "../../../globalStyles";
 
 export const FormSectionWrapper = styled.fieldset`
   margin-top: 2.4rem;
@@ -7,6 +8,12 @@ export const FormSectionWrapper = styled.fieldset`
 
   &:not(:last-of-type) {
     border-bottom: 1px solid var(--color-grey);
+  }
+
+  @media ${DEVICES.tablet} {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
   }
 `;
 

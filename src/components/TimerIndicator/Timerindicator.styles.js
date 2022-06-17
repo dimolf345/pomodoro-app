@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { DEVICES } from "../../globalStyles";
 
 export const ListWrapper = styled.ul`
   display: flex;
@@ -7,6 +8,12 @@ export const ListWrapper = styled.ul`
   border-radius: 31.5px;
   width: 100%;
   margin-bottom: 5rem;
+  max-width: 37.5rem;
+
+  @media ${DEVICES.tablet} {
+
+    margin-bottom: 0;
+  }
 
   @keyframes activeAnimation {
     0% {
@@ -52,4 +59,8 @@ export const Button = styled.button`
     border: none;
     color: currentColor;
     cursor: pointer;
+
+    @media ${DEVICES.tablet} {
+      font-size: 1.4rem;
+    }
 `;

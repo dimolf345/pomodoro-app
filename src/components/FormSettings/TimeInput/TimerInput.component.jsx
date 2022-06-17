@@ -20,7 +20,14 @@ function TimerInput({
     <InputWrapper>
       <InputLabel htmlFor={label}>{label}</InputLabel>
       <InputInner>
-        <Input name={label} type="number" value={value} readOnly />
+        <Input
+          tabIndex="-1"
+          id={label}
+          name={label}
+          type="number"
+          value={value}
+          readOnly
+        />
         <ButtonContainer>
           {/* Button arrow up */}
           <button
@@ -30,8 +37,9 @@ function TimerInput({
               handleChange(1);
             }}
           >
-            <SrOnly text={`Add 1 minute to ${label}`} />
-            <ArrowUp />
+            <ArrowUp aria-label="add 1 minute">
+              <SrOnly text={`Add 1 minute to ${label}`} />
+            </ArrowUp>
           </button>
           {/* Button arrow down */}
           <button
@@ -39,8 +47,9 @@ function TimerInput({
             type="button"
             onClick={() => handleChange(-1)}
           >
-            <SrOnly text={`Substract 1 minute to ${label}`} />
-            <ArrowDown />
+            <ArrowDown aria-label="subtract 1 minute">
+              <SrOnly text={`Substract 1 minute to ${label}`} />
+            </ArrowDown>
           </button>
         </ButtonContainer>
       </InputInner>

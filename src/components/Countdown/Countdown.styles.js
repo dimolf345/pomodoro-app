@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { DEVICES } from "../../globalStyles";
 
 export const CountdownWrapper = styled.div`
   height: ${(props) => `${props.size}px`};
@@ -9,6 +10,11 @@ export const CountdownWrapper = styled.div`
   border-radius: 50%;
   box-shadow: var(--box-shadow-top-left), var(--box-shadow-bottom-right); 
   margin-bottom: auto;
+
+  @media ${DEVICES.tablet} {
+    margin-bottom: 0;
+    margin: auto;
+  }
 `;
 
 export const CountdownInner = styled.div`
