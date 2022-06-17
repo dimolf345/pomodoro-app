@@ -66,6 +66,6 @@ I want to learn how to write cleaner code with perfect reusable and testable com
 
 ## Author
 
-- Linkedin - [Luca Di Molfetta](https://www.your-site.com)
-- Frontend Mentor - [@dimolf345](https://www.frontendmentor.io/profile/yourusername)
+- Linkedin - [Luca Di Molfetta](https://www.linkedin.com/in/luca-di-molfetta-89659419a/)
+- Frontend Mentor - [@dimolf345](https://www.frontendmentor.io/profile/dimolf345)
 - Twitter - [@yourusername](https://www.twitter.com/yourusername)
