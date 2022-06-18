@@ -38,7 +38,7 @@ function RadioGroup({
           style={handleStyle(index)}
           key={option.name}
         >
-          <InputLabel htmlFor={option.name}>
+          <InputLabel htmlFor={option.name.replace(" ", "-")}>
             <span
               style={handleStyle(index)}
             >
@@ -50,7 +50,7 @@ function RadioGroup({
               onChange={() => handleChange(index)}
               checked={index === currentIndex}
               type="radio"
-              id={option.name}
+              id={option.name.replace(" ", "-")}
               name={option.name}
               value={option.value}
             />

@@ -21,11 +21,13 @@ function TimerSettings({ timers, setTimers }) {
   return (
     <>
       {timers.map((timer, index) => {
-        const { name, duration, min, max } = timer;
+        const {
+          name, duration, min, max,
+        } = timer;
         return (
           <TimerInput
             key={name}
-            label={name}
+            label={name.replace(" ", "-")}
             value={duration}
             min={min}
             max={max}
@@ -37,6 +39,12 @@ function TimerSettings({ timers, setTimers }) {
   );
 }
 
-TimerSettings.propTypes = {};
+TimerSettings.propTypes = {
+  timers: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string,
+    duration: PropTypes.number,
+  })).isRequired,
+  setTimers: PropTypes.func.isRequired,
+};
 
 export default TimerSettings;

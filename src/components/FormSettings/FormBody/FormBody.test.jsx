@@ -26,6 +26,6 @@ describe("Formbody", () => {
     const pomodoroTimer = screen.getByLabelText(/pomodoro/i);
     expect(pomodoroTimer).toBeInTheDocument();
     expect(pomodoroTimer).not.toHaveValue(0);
-    expect(pomodoroTimer).toHaveValue(26);
+    expect(pomodoroTimer).toHaveValue(25);
   });
 });

@@ -35,7 +35,6 @@ function SettingsModal({ showModal, setShowModal, isAnimated }) {
     >
       <FormWrapper
         aria-labelledby="form-title"
-        role="form"
         isAnimated={isAnimated}
         showModal={showModal}
         ref={formRef}
